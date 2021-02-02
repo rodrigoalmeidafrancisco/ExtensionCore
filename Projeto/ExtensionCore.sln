@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Project", "0 - Project", "{88C5CA26-CFF8-4539-980B-B84157A01AB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UnitTest", "1 - UnitTest", "{C50FE376-DCDA-4506-BC9E-01C000C86E4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionCore", "ExtensionCore\ExtensionCore.csproj", "{A35899BC-4334-4A86-BF93-F190EBA6BA46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A35899BC-4334-4A86-BF93-F190EBA6BA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A35899BC-4334-4A86-BF93-F190EBA6BA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A35899BC-4334-4A86-BF93-F190EBA6BA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A35899BC-4334-4A86-BF93-F190EBA6BA46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A35899BC-4334-4A86-BF93-F190EBA6BA46} = {88C5CA26-CFF8-4539-980B-B84157A01AB3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2F23703-F892-4368-B48D-7848AEA3913A}
+	EndGlobalSection
+EndGlobal
