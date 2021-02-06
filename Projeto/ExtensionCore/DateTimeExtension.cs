@@ -36,33 +36,12 @@ namespace ExtensionCore
 
         public static DateTime ToDateTimeDayEnd(this DateTime val)
         {
-            try
-            {
-                return val.AddDays(1).AddMilliseconds(-1);
-            }
-            catch
-            {
-                return val;
-            }
+            return val.AddDays(1).AddMilliseconds(-1);
         }
 
         public static DateTime ToDateTimeDayEnd(this DateTime? val)
         {
-            DateTime date = DateTime.MaxValue;
-
-            try
-            {
-                if (val.HasValue)
-                {
-                    date = val.Value.ToDateTimeDayEnd();
-                }
-
-                return date;
-            }
-            catch
-            {
-                return date;
-            }
+            return val.HasValue ? val.Value.ToDateTimeDayEnd() : DateTime.MaxValue;
         }
     }
 }
