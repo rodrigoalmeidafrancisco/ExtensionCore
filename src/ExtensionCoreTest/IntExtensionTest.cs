@@ -1,9 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ExtensionCore;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace UnitTest
+namespace ExtensionCoreTest
 {
     [TestClass]
     public class IntExtensionTest

@@ -2,7 +2,7 @@ using ExtensionCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace UnitTest
+namespace ExtensionCoreTest
 {
     [TestClass]
     public class BoolExtensionTest
