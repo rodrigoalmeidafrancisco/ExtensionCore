@@ -26,15 +26,19 @@ namespace ExtensionCore
         {
             byte valueReturn = 0;
 
-            if (val != null)
+            try
             {
-                if (val is byte aux)
+                if (val != null)
                 {
-                    valueReturn = aux;
+                    valueReturn = val.ToString().ToByte();
                 }
-            }
 
-            return valueReturn;
+                return valueReturn;
+            }
+            catch
+            {
+                return valueReturn;
+            }
         }
 
         public static byte ToByte(this Enum value)
