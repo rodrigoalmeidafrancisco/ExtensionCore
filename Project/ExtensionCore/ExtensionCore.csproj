@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Rodrigo de Almeida Francisco</Authors>
+    <Title>ExtensionCore</Title>
     <Company></Company>
     <Product>.Net Core Extention Library</Product>
     <Copyright>Copyright © Rodrigo de Almeida Francisco - 2021</Copyright>
