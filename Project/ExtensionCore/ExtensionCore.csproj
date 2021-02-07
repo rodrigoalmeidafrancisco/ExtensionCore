@@ -6,7 +6,7 @@
     <Company></Company>
     <Product>.Net Core Extention Library</Product>
     <Copyright>Copyright © Rodrigo de Almeida Francisco - 2021</Copyright>
-    <PackageTags>.netcore, extension</PackageTags>
+    <PackageTags>.netcore, extension, extension-method</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/rodrigoalmeidafrancisco/ExtensionCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rodrigoalmeidafrancisco/ExtensionCore</RepositoryUrl>
