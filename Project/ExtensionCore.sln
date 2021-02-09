@@ -30,6 +30,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionCore", "ExtensionC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionCoreTest", "ExtensionCoreTest\ExtensionCoreTest.csproj", "{079292EC-A86F-42FD-8B0A-6DFED462C9D8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.2 - License", "0.2 - License", "{36227552-B30A-4AE6-8575-D66D422AEEA1}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\_Arquivos\license.txt = ..\_Arquivos\license.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +56,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4DF4084C-3165-4F88-A770-DDA8F2529FD5} = {3FE2FF70-72FB-412C-ADD4-6049098168DC}
+		{36227552-B30A-4AE6-8575-D66D422AEEA1} = {3FE2FF70-72FB-412C-ADD4-6049098168DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2F23703-F892-4368-B48D-7848AEA3913A}
