@@ -29,7 +29,7 @@ jobs:
       - uses: actions/upload-artifact@main
         with:
           name: webpack artifacts
-          path: ExtensionCore/bin/Release/
+          path: /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/
         
       - name: Test
         working-directory: Project
