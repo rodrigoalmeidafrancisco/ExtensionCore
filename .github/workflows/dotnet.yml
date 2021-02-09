@@ -28,8 +28,8 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       - uses: actions/upload-artifact@main
         with:
-          name: webpack artifacts
-          path: /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/
+          name: dropArtifacts
+          path: /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/*.nupkg
         
       - name: Test
         working-directory: Project
