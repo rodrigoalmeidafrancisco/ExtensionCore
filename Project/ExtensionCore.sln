@@ -33,7 +33,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.2 - License", "0.2 - License", "{36227552-B30A-4AE6-8575-D66D422AEEA1}"
 	ProjectSection(SolutionItems) = preProject
 		..\LICENSE = ..\LICENSE
-		..\_Arquivos\license.txt = ..\_Arquivos\license.txt
 	EndProjectSection
 EndProject
 Global
