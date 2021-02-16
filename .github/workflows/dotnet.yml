@@ -36,6 +36,6 @@ jobs:
         run: dotnet test --no-restore --verbosity normal
     
       - name: Publish Nuget
-        run: dotnet nuget push *.nupkg -k ${{secrets.NUGETTOKEN}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/*.nupkg -k ${{secrets.NUGETTOKEN}} -s https://api.nuget.org/v3/index.json --skip-duplicate
     
     
