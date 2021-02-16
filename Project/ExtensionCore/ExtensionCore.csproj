@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>NetCore.Extension</PackageId>
+    <PackageId>Developer.ExtensionCore</PackageId>
     <Authors>Rodrigo de Almeida Francisco</Authors>
     <Company></Company>
     <Description>
