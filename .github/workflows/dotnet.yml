@@ -26,25 +26,16 @@ jobs:
       - name: Build
         working-directory: Project
         run: dotnet build --configuration Release --no-restore
-      - uses: actions/upload-artifact@main
-        with:
-          name: dropArtifacts
-          path: /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/*.nupkg
+      #- uses: actions/upload-artifact@main
+      #  with:
+      #    name: dropArtifacts
+      #    path: /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/*.nupkg
         
       - name: Test
         working-directory: Project
         run: dotnet test --no-restore --verbosity normal
     
-      #- name: Checkout
-      #  uses: actions/checkout@v2
-      
-      #- name: Build container image
-      #  uses: docker/build-push-action@v1
-      #  with:
-      #    username: ${{ github.actor }}
-      #    password: ${{ secrets.GITHUB_TOKEN }}
-      #    registry: docker.pkg.github.com
-      #    repository: ${{ github.repository }}/octo-image
-      #    tag_with_sha: true
-      #    tag_with_ref: true
+      - name: Publish Nuget
+        run: dotnet nuget push /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/*.nupkg -k ${{secrets.NUGETTOKEN}} -s https://nuget.pkg.github.com/rodrigoalmeidafrancisco/index.json --skip-duplicate --no-symbols
+    
     
