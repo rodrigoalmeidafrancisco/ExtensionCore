@@ -29,7 +29,7 @@ jobs:
       #- uses: actions/upload-artifact@main
       #  with:
       #    name: dropArtifacts
-      #    path: /home/runner/work/ExtensionCore/ExtensionCore/Project/ExtensionCore/bin/Release/*.nupkg
+      #    path: **/src/ExtensionCore/bin/Release/*.nupkg
         
       - name: Test
         working-directory: Project
