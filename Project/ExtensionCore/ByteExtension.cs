@@ -11,15 +11,22 @@ namespace ExtensionCore
         {
             byte valueReturn = 0;
 
-            if (!val.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                if (byte.TryParse(val, out byte aux))
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = aux;
+                    if (byte.TryParse(val, out byte aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
-            }
 
-            return valueReturn;
+                return valueReturn;
+            }
+            catch
+            {
+                return valueReturn;
+            }
         }
 
         public static byte ToByte(this object val)
@@ -43,59 +50,76 @@ namespace ExtensionCore
 
         public static byte ToByte(this Enum value)
         {
-            byte aux;
+            byte aux = 0;
 
-            if (value == null)
+            try
             {
-                aux = 0;
-            }
-            else
-            {
-                var valor = Convert.ChangeType(value, value.GetTypeCode());
-                aux = valor == null ? "0".ToByte() : valor.ToByte();
-            }
+                if (value != null)
+                {
+                    var valor = Convert.ChangeType(value, value.GetTypeCode());
+                    aux = valor == null ? "0".ToByte() : valor.ToByte();
+                }
 
-            return aux;
+                return aux;
+            }
+            catch
+            {
+                return aux;
+            }
         }
 
         public static byte[] ImageScale(this byte[] imageSource, int scale)
         {
             byte[] retorno = null;
 
-            if (imageSource != null)
+            try
             {
-                using (Image image = Image.Load(imageSource))
+                if (imageSource != null)
                 {
-                    image.Mutate(x => x.Resize(image.Width / scale, image.Height / scale));
-
-                    using (var stream = new MemoryStream())
+                    using (Image image = Image.Load(imageSource))
                     {
-                        image.SaveAsPng(stream);
-                        retorno = stream.GetBuffer();
+                        image.Mutate(x => x.Resize(image.Width / scale, image.Height / scale));
+
+                        using (var stream = new MemoryStream())
+                        {
+                            image.SaveAsPng(stream);
+                            retorno = stream.GetBuffer();
+                        }
                     }
                 }
-            }
 
-            return retorno;
+                return retorno;
+            }
+            catch
+            {
+                return retorno;
+            }
         }
 
         public static byte[] ToPathByteArray(this string path)
         {
             byte[] retorno = null;
 
-            if (!path.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                using (FileStream imageFileStream = File.OpenRead(path))
+                if (!path.IsNullOrEmptyOrWhiteSpace())
                 {
-                    using (MemoryStream ms = new MemoryStream())
+                    using (FileStream imageFileStream = File.OpenRead(path))
                     {
-                        imageFileStream.CopyTo(ms);
-                        retorno = ms.ToArray();
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            imageFileStream.CopyTo(ms);
+                            retorno = ms.ToArray();
+                        }
                     }
                 }
-            }
 
-            return retorno;
+                return retorno;
+            }
+            catch
+            {
+                return retorno;
+            }
         }
 
 
