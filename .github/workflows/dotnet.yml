@@ -24,7 +24,7 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        working-directory: Project
+        #working-directory: Project
         run: dotnet build --configuration Release --no-restore
       #- uses: actions/upload-artifact@main
       #  with:
