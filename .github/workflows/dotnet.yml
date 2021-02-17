@@ -32,7 +32,7 @@ jobs:
       #    path: **/src/ExtensionCore/bin/Release/*.nupkg
         
       - name: Test
-        working-directory: Project
+        #working-directory: Project
         run: dotnet test --no-restore --verbosity normal
     
       - name: Publish Nuget
