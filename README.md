@@ -2,11 +2,11 @@
 Pacote de métodos extensíveis para agilizar na validação e manipulação do desenvolvimento.
 
 
-### Dependências
+# Dependências
 - .NET Standard 2.1 - [.NET Standard Support](https://docs.microsoft.com/pt-br/dotnet/standard/net-standard)
 
 
-### Instalação
+# Instalação
 Este pacote está disponível através de Pacotes Nuget: https://www.nuget.org/packages/Developer.ExtensionCore/
 
 
