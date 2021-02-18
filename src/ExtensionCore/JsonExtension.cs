@@ -13,7 +13,7 @@ namespace ExtensionCore
         /// <typeparam name="T"></typeparam>
         /// <param name="json"></param>
         /// <returns></returns>
-        public static string ToSerializeJsonTextJson<T>(this T objeto) where T : class
+        public static string ToSerializeJsonTextJson(this object objeto)
         {
             return System.Text.Json.JsonSerializer.Serialize(objeto, new JsonSerializerOptions() { WriteIndented = true }); ;
         }
@@ -41,7 +41,7 @@ namespace ExtensionCore
         /// <typeparam name="T"></typeparam>
         /// <param name="objeto"></param>
         /// <returns></returns>
-        public static string ToSerializeJsonNewtonsoft<T>(this T objeto) where T : class
+        public static string ToSerializeJsonNewtonsoft(this object objeto)
         {
             return JsonConvert.SerializeObject(objeto);
         }
@@ -53,7 +53,7 @@ namespace ExtensionCore
         /// <param name="objeto"></param>
         /// <param name="ignoreLoop"></param>
         /// <returns></returns>
-        public static string ToSerializeJsonNewtonsoft<T>(this T objeto, bool ignoreLoop) where T : class
+        public static string ToSerializeJsonNewtonsoft(this object objeto, bool ignoreLoop = true)
         {
             if (ignoreLoop)
             {

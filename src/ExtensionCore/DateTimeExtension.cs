@@ -8,40 +8,69 @@ namespace ExtensionCore
         {
             DateTime date = DateTime.MinValue;
 
-            if (!val.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                if (DateTime.TryParse(val, out DateTime tmp))
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    date = tmp;
+                    if (DateTime.TryParse(val, out DateTime tmp))
+                    {
+                        date = tmp;
+                    }
                 }
+
+                return date;
+            }
+            catch
+            {
+                return date;
             }
 
-            return date;
         }
 
         public static DateTime? ToDateTimeNull(this string val)
         {
             DateTime? date = null;
 
-            if (!val.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                if (DateTime.TryParse(val, out DateTime tmp))
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    date = tmp;
+                    if (DateTime.TryParse(val, out DateTime tmp))
+                    {
+                        date = tmp;
+                    }
                 }
-            }
 
-            return date;
+                return date;
+            }
+            catch
+            {
+                return date;
+            }
         }
 
         public static DateTime ToDateTimeDayEnd(this DateTime val)
         {
-            return val.AddDays(1).AddMilliseconds(-1);
+            try
+            {
+                return val.AddDays(1).AddMilliseconds(-1);
+            }
+            catch
+            {
+                return DateTime.MaxValue;
+            }
         }
 
         public static DateTime ToDateTimeDayEnd(this DateTime? val)
         {
-            return val.HasValue ? val.Value.ToDateTimeDayEnd() : DateTime.MaxValue;
+            try
+            {
+                return val.HasValue ? val.Value.ToDateTimeDayEnd() : DateTime.MaxValue;
+            }
+            catch
+            {
+                return DateTime.MaxValue;
+            }
         }
     }
 }

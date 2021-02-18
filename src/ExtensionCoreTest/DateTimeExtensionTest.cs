@@ -8,10 +8,37 @@ namespace ExtensionCoreTest
     public class DateTimeExtensionTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Teste_ToDateTime()
         {
+            DateTime dataAtual = DateTime.Now;
+
+            string dataString = JsonExtension.ToSerializeJsonNewtonsoft(dataAtual);
+            
 
         }
 
+        [TestMethod]
+        public void Teste_ToDateTimeNull()
+        {
+
+
+
+        }
+
+        [TestMethod]
+        public void Teste_ToDateTimeDayEnd()
+        {
+
+
+
+        }
+
+        [TestMethod]
+        public void Teste_ToDateTimeDayEnd_Null()
+        {
+
+
+
+        }
     }
 }
