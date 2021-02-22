@@ -20,11 +20,11 @@ jobs:
           dotnet-version: 5.0.x
 
       - name: Restore dependencies
-        #working-directory: Project
+        working-directory: Project
         run: dotnet restore
 
       - name: Build
-        #working-directory: Project
+        working-directory: Project
         run: dotnet build --configuration Release --no-restore
       #- uses: actions/upload-artifact@main
       #  with:
@@ -32,7 +32,7 @@ jobs:
       #    path: **/src/ExtensionCore/bin/Release/*.nupkg
         
       - name: Test
-        #working-directory: Project
+        working-directory: Project
         run: dotnet test --no-restore --verbosity normal
     
       - name: Publish Nuget
