@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ExtensionCore
 {
     public static class DateTimeExtension
     {
-        public static DateTime ToDateTime(this string val)
+        public static DateTime ToDateTime(this string val, CultureInfo cultureInfo = null)
         {
             DateTime date = DateTime.MinValue;
 
@@ -15,6 +16,14 @@ namespace ExtensionCore
                     if (DateTime.TryParse(val, out DateTime tmp))
                     {
                         date = tmp;
+                    }
+                    else if (cultureInfo != null)
+                    {
+                        date = Convert.ToDateTime(val, cultureInfo);
+                    }
+                    else
+                    {
+                        date = Convert.ToDateTime(val);
                     }
                 }
 
@@ -27,7 +36,7 @@ namespace ExtensionCore
 
         }
 
-        public static DateTime? ToDateTimeNull(this string val)
+        public static DateTime? ToDateTimeNull(this string val, CultureInfo cultureInfo = null)
         {
             DateTime? date = null;
 
@@ -38,6 +47,14 @@ namespace ExtensionCore
                     if (DateTime.TryParse(val, out DateTime tmp))
                     {
                         date = tmp;
+                    }
+                    else if (cultureInfo != null)
+                    {
+                        date = Convert.ToDateTime(val, cultureInfo);
+                    }
+                    else
+                    {
+                        date = Convert.ToDateTime(val);
                     }
                 }
 

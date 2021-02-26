@@ -15,7 +15,14 @@ namespace ExtensionCore
         /// <returns></returns>
         public static string ToSerializeJsonTextJson(this object objeto)
         {
-            return System.Text.Json.JsonSerializer.Serialize(objeto, new JsonSerializerOptions() { WriteIndented = true }); ;
+            try
+            {
+                return System.Text.Json.JsonSerializer.Serialize(objeto, new JsonSerializerOptions() { WriteIndented = true }); ;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -25,10 +32,9 @@ namespace ExtensionCore
         /// <typeparam name="T"></typeparam>
         /// <param name="json"></param>
         /// <returns></returns>
-        public static T ToDeserializeJsonTextJson<T>(this string json) where T : class
+        public static T ToDeserializeJsonTextJson<T>(this string json)
         {
-            return string.IsNullOrEmpty(json) ? null :
-                System.Text.Json.JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+            return System.Text.Json.JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
         #endregion System.Text.Json
@@ -43,7 +49,14 @@ namespace ExtensionCore
         /// <returns></returns>
         public static string ToSerializeJsonNewtonsoft(this object objeto)
         {
-            return JsonConvert.SerializeObject(objeto);
+            try
+            {
+                return JsonConvert.SerializeObject(objeto);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -55,17 +68,24 @@ namespace ExtensionCore
         /// <returns></returns>
         public static string ToSerializeJsonNewtonsoft(this object objeto, bool ignoreLoop = true)
         {
-            if (ignoreLoop)
+            try
             {
-                JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
+                if (ignoreLoop)
                 {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                };
+                    JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    };
 
-                return JsonConvert.SerializeObject(objeto, jsonSerializerSettings);
+                    return JsonConvert.SerializeObject(objeto, jsonSerializerSettings);
+                }
+
+                return JsonConvert.SerializeObject(objeto);
             }
-
-            return JsonConvert.SerializeObject(objeto);
+            catch
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -74,9 +94,9 @@ namespace ExtensionCore
         /// <typeparam name="T"></typeparam>
         /// <param name="json"></param>
         /// <returns></returns>
-        public static T ToDeserializeJsonNewtonsoft<T>(this string json) where T : class
+        public static T ToDeserializeJsonNewtonsoft<T>(this string json)
         {
-            return string.IsNullOrEmpty(json) ? null : JsonConvert.DeserializeObject<T>(json);
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
         #endregion Newtonsoft.Json
