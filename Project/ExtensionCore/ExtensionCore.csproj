@@ -2,31 +2,32 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Developer.ExtensionCore</PackageId>
+    <Version>1.0.5</Version>
     <Authors>Rodrigo de Almeida Francisco</Authors>
-    <Company></Company>
-    <Description>
-      Pacote de métodos extensíveis para agilizar na validação e manipulação do desenvolvimento.
-      - BoolExtension
-      - ByteExtension
-      - DateTimeExtension
-      - DecimalExtension
-      - DoubleExtension
-      - FloatExtension
-      - GuidExtension
-      - IntExtension
-      - JsonExtension
-      - LongExtension
-      - ObjectExtension
-      - StreamExtension
-      - StringExtension
-      - TimeSpanExtension
-    </Description>
+    <Product>Developer.ExtensionCore</Product>
+    <Description>Pacote de métodos extensíveis para agilizar na validação e manipulação do desenvolvimento.
+- BoolExtension
+- ByteExtension
+- DateTimeExtension
+- DecimalExtension
+- DoubleExtension
+- FloatExtension
+- GuidExtension
+- IntExtension
+- JsonExtension
+- LongExtension
+- ObjectExtension
+- StreamExtension
+- StringExtension
+- TimeSpanExtension</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>.net, .netcore, extension, extension-method</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/rodrigoalmeidafrancisco/Developer.ExtensionCore</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/rodrigoalmeidafrancisco/Developer.ExtensionCore</RepositoryUrl>
-    <Version>1.0.4</Version>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>.net, .netcore, extension, extension-method</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,4 +37,10 @@
     <PackageReference Include="System.Text.Json" Version="5.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\Files\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
