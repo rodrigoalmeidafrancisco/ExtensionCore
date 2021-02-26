@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ExtensionCore
+﻿namespace ExtensionCore
 {
     public static class FloatExtension
     {

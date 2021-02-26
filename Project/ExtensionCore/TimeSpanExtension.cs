@@ -9,7 +9,5 @@ namespace ExtensionCore
             return new TimeSpan(dataHora.Hour, dataHora.Minute, dataHora.Second);
         }
 
-
-
     }
 }

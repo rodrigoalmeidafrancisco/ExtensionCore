@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>Developer.ExtensionCore</PackageId>
-    <Version>1.0.5</Version>
+    <Version>1.1.0</Version>
     <Authors>Rodrigo de Almeida Francisco</Authors>
     <Product>Developer.ExtensionCore</Product>
     <Description>Pacote de métodos extensíveis para agilizar na validação e manipulação do desenvolvimento.
@@ -38,9 +38,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\Files\icon.png">
+    <None Include="..\..\Files\icon.png" Link="Files\icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Files\" />
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ namespace ExtensionCore
 {
     public static class DateTimeExtension
     {
-        public static DateTime ToDateTime(this string val, CultureInfo cultureInfo = null)
+        public static DateTime ToDateTime(this string val, string cultureInfo = null)
         {
             DateTime date = DateTime.MinValue;
 
@@ -17,9 +17,9 @@ namespace ExtensionCore
                     {
                         date = tmp;
                     }
-                    else if (cultureInfo != null)
+                    else if (!cultureInfo.IsNullOrEmptyOrWhiteSpace())
                     {
-                        date = Convert.ToDateTime(val, cultureInfo);
+                        date = Convert.ToDateTime(val, new CultureInfo(cultureInfo));
                     }
                     else
                     {
@@ -36,7 +36,7 @@ namespace ExtensionCore
 
         }
 
-        public static DateTime? ToDateTimeNull(this string val, CultureInfo cultureInfo = null)
+        public static DateTime? ToDateTimeNull(this string val, string cultureInfo = null)
         {
             DateTime? date = null;
 
@@ -48,9 +48,9 @@ namespace ExtensionCore
                     {
                         date = tmp;
                     }
-                    else if (cultureInfo != null)
+                    else if (!cultureInfo.IsNullOrEmptyOrWhiteSpace())
                     {
-                        date = Convert.ToDateTime(val, cultureInfo);
+                        date = Convert.ToDateTime(val, new CultureInfo(cultureInfo));
                     }
                     else
                     {
