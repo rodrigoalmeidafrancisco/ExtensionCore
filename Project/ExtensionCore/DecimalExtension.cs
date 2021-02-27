@@ -1,40 +1,53 @@
-﻿namespace ExtensionCore
+﻿using System.Globalization;
+
+namespace ExtensionCore
 {
     public static class DecimalExtension
     {
         public static decimal ToDecimal(this string val)
         {
-            decimal valueReturn = 0;
-
-            if (!val.IsNullOrEmptyOrWhiteSpace())
-            {
-                if (decimal.TryParse(val, out decimal aux))
-                {
-                    valueReturn = aux;
-                }
-            }
-
-            return valueReturn;
-        }
-
-        public static decimal ToDecimal(this object val)
-        {
-            decimal valueReturn = 0;
-
             try
             {
-                if (val != null)
+                decimal valueReturn = decimal.MinValue;
+
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = val.ToString().ToDecimal();
+                    if (decimal.TryParse(val, out decimal aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
 
                 return valueReturn;
             }
             catch
             {
-                return valueReturn;
+                return decimal.MinValue;
             }
         }
+
+        public static decimal ToDecimal(this string val, NumberStyles style, string cultureInfo)
+        {
+            try
+            {
+                decimal valueReturn = decimal.MinValue;
+
+                if (!val.IsNullOrEmptyOrWhiteSpace())
+                {
+                    if (decimal.TryParse(val, style, new CultureInfo(cultureInfo), out decimal aux))
+                    {
+                        valueReturn = aux;
+                    }
+                }
+
+                return valueReturn;
+            }
+            catch
+            {
+                return decimal.MinValue;
+            }
+        }
+       
 
     }
 }

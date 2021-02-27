@@ -1,39 +1,53 @@
-﻿namespace ExtensionCore
+﻿using System.Globalization;
+
+namespace ExtensionCore
 {
     public static class FloatExtension
     {
         public static float ToFloat(this string val)
         {
-            float valueReturn = 0;
-
-            if (!val.IsNullOrEmptyOrWhiteSpace())
-            {
-                if (float.TryParse(val, out float aux))
-                {
-                    valueReturn = aux;
-                }
-            }
-
-            return valueReturn;
-        }
-
-        public static float ToFloat(this object val)
-        {
-            float valueReturn = 0;
-
             try
             {
-                if (val != null)
+                float valueReturn = float.MinValue;
+
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = val.ToString().ToFloat();
+                    if (float.TryParse(val, out float aux))
+                    {
+                        valueReturn = aux;
+                    }
+                }
+
+                return valueReturn;
+            }
+            catch 
+            {
+                return float.MinValue;
+            }
+        }
+
+        public static float ToFloat(this string val, NumberStyles style, string cultureInfo)
+        {
+            try
+            {
+                float valueReturn = float.MinValue;
+
+                if (!val.IsNullOrEmptyOrWhiteSpace())
+                {
+                    if (float.TryParse(val, style, new CultureInfo(cultureInfo), out float aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
 
                 return valueReturn;
             }
             catch
             {
-                return valueReturn;
+                return float.MinValue;
             }
         }
+
+
     }
 }

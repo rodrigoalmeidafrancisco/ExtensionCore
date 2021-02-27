@@ -1,16 +1,27 @@
 ﻿using ExtensionCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace ExtensionCoreTest
 {
     [TestClass]
     public class FloatExtensionTest
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
+        private string _val;
+        private float _valueReturn;
 
+        public FloatExtensionTest()
+        {
+            _valueReturn = float.MinValue;
+        }
+
+        [TestMethod]
+        public void Test_ToFloat()
+        {
+            _val = "41.00027357629127";
+            _valueReturn = _val.ToFloat(); 
+            _valueReturn = FloatExtension.ToFloat(_val);
+
+            Assert.AreEqual(_valueReturn, (float)4.10002732E+15);
         }
 
     }

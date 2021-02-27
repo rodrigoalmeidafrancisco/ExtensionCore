@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>Developer.ExtensionCore</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Authors>Rodrigo de Almeida Francisco</Authors>
     <Product>Developer.ExtensionCore</Product>
     <Description>Pacote de métodos extensíveis para agilizar na validação e manipulação do desenvolvimento.

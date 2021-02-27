@@ -1,39 +1,52 @@
-﻿namespace ExtensionCore
+﻿using System.Globalization;
+
+namespace ExtensionCore
 {
     public static class DoubleExtension
     {
         public static double ToDouble(this string val)
         {
-            double valueReturn = 0;
-
-            if (!val.IsNullOrEmptyOrWhiteSpace())
-            {
-                if (double.TryParse(val, out double aux))
-                {
-                    valueReturn = aux;
-                }
-            }
-
-            return valueReturn;
-        }
-
-        public static double ToDouble(this object val)
-        {
-            double valueReturn = 0;
-
             try
             {
-                if (val != null)
+                double valueReturn = double.MinValue;
+
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = val.ToString().ToDouble();
+                    if (double.TryParse(val, out double aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
 
                 return valueReturn;
             }
             catch
             {
-                return valueReturn;
+                return double.MinValue;
             }
         }
+
+        public static double ToDouble(this string val, NumberStyles style, string cultureInfo)
+        {
+            try
+            {
+                double valueReturn = double.MinValue;
+
+                if (!val.IsNullOrEmptyOrWhiteSpace())
+                {
+                    if (double.TryParse(val, style, new CultureInfo(cultureInfo), out double aux))
+                    {
+                        valueReturn = aux;
+                    }
+                }
+
+                return valueReturn;
+            }
+            catch
+            {
+                return double.MinValue;
+            }
+        }
+
     }
 }
