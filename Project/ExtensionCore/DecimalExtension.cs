@@ -6,10 +6,10 @@ namespace ExtensionCore
     {
         public static decimal ToDecimal(this string val)
         {
+            decimal valueReturn = 0;
+
             try
             {
-                decimal valueReturn = decimal.MinValue;
-
                 if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
                     if (decimal.TryParse(val, out decimal aux))
@@ -17,21 +17,21 @@ namespace ExtensionCore
                         valueReturn = aux;
                     }
                 }
-
-                return valueReturn;
             }
             catch
             {
-                return decimal.MinValue;
+                valueReturn = decimal.MinValue;
             }
+
+            return valueReturn;
         }
 
         public static decimal ToDecimal(this string val, NumberStyles style, string cultureInfo)
         {
+            decimal valueReturn = 0;
+
             try
             {
-                decimal valueReturn = decimal.MinValue;
-
                 if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
                     if (decimal.TryParse(val, style, new CultureInfo(cultureInfo), out decimal aux))
@@ -39,13 +39,13 @@ namespace ExtensionCore
                         valueReturn = aux;
                     }
                 }
-
-                return valueReturn;
             }
             catch
             {
-                return decimal.MinValue;
+                valueReturn = decimal.MinValue;
             }
+
+            return valueReturn;
         }
        
 

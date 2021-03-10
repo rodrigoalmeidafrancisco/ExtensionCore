@@ -12,7 +12,7 @@ namespace ExtensionCoreTest
 
         public DecimalExtensionTest()
         {
-            _valueReturn = decimal.MinValue;
+           
         }
 
         [TestMethod]

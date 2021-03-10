@@ -10,14 +10,23 @@ namespace ExtensionCore
         /// <summary>
         /// Converte o Objeto em JSON usando a dll 'System.Text.Json' (Microsoft .NetCore)
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="json"></param>
+        /// <param name="objeto"></param>
+        /// <param name="ignoreLoop"></param>
         /// <returns></returns>
-        public static string ToSerializeJsonTextJson(this object objeto)
+        public static string ToSerializeJsonTextJson(this object objeto, bool ignoreLoop = true)
         {
             try
             {
-                return System.Text.Json.JsonSerializer.Serialize(objeto, new JsonSerializerOptions() { WriteIndented = true }); ;
+                if (ignoreLoop)
+                {
+                    return System.Text.Json.JsonSerializer.Serialize(objeto, new JsonSerializerOptions()
+                    {
+                        WriteIndented = true,
+                        ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve
+                    });
+                }
+
+                return System.Text.Json.JsonSerializer.Serialize(objeto, new JsonSerializerOptions() { WriteIndented = true });
             }
             catch
             {
@@ -40,24 +49,6 @@ namespace ExtensionCore
         #endregion System.Text.Json
 
         #region Newtonsoft.Json
-
-        /// <summary>
-        /// Converte o Objeto em JSON usando a dll 'Newtonsoft.Json'
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="objeto"></param>
-        /// <returns></returns>
-        public static string ToSerializeJsonNewtonsoft(this object objeto)
-        {
-            try
-            {
-                return JsonConvert.SerializeObject(objeto);
-            }
-            catch
-            {
-                return null;
-            }
-        }
 
         /// <summary>
         /// Converte o Objeto em JSON usando a dll 'Newtonsoft.Json'

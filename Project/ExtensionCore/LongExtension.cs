@@ -8,27 +8,19 @@ namespace ExtensionCore
         {
             long valueReturn = 0;
 
-            if (!val.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                if (long.TryParse(val, out long aux))
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = aux;
+                    if (long.TryParse(val, out long aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
             }
-
-            return valueReturn;
-        }
-
-        public static long Tolong(this object val)
-        {
-            long valueReturn = 0;
-
-            if (val != null)
+            catch
             {
-                if (val is long aux)
-                {
-                    valueReturn = aux;
-                }
+                valueReturn = long.MinValue;
             }
 
             return valueReturn;
@@ -36,16 +28,19 @@ namespace ExtensionCore
 
         public static long Tolong(this Enum value)
         {
-            long aux;
+            long aux = 0;
 
-            if (value == null)
+            try
             {
-                aux = 0;
+                if (value != null)
+                {
+                    string valor = Convert.ChangeType(value, value.GetTypeCode()).ToString();
+                    aux = valor == null ? "0".Tolong() : valor.Tolong();
+                }
             }
-            else
+            catch
             {
-                var valor = Convert.ChangeType(value, value.GetTypeCode());
-                aux = valor == null ? "0".Tolong() : valor.Tolong();
+                aux = long.MinValue;
             }
 
             return aux;

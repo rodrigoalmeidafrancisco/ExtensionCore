@@ -11,7 +11,7 @@ namespace ExtensionCoreTest
 
         public DoubleExtensionTest()
         {
-            _valueReturn = double.MinValue;
+            
         }
 
         [TestMethod]

@@ -8,16 +8,34 @@ namespace ExtensionCore
     {
         public static Stream ToBitmapStream(this Bitmap bitmap, ImageFormat imageFormat)
         {
-            Image image = bitmap;
-
-            using (Stream stream = new MemoryStream())
+            try
             {
-                image.Save(stream, imageFormat);
-                stream.Position = 0;
-                return stream;
+                Image image = bitmap;
+
+                using (Stream stream = new MemoryStream())
+                {
+                    image.Save(stream, imageFormat);
+                    stream.Position = 0;
+                    return stream;
+                }
+            }
+            catch 
+            {
+                return null;
             }
         }
 
+        public static MemoryStream ToMemoryStream(this byte[] bytes)
+        {
+            try
+            {
+                return new MemoryStream(bytes);
+            }
+            catch 
+            {
+                return null;
+            }
+        }
 
     }
 }

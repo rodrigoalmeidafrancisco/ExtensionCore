@@ -8,12 +8,19 @@ namespace ExtensionCore
         {
             Guid valueReturn = Guid.Empty;
 
-            if (!val.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                if (Guid.TryParse(val, out Guid aux))
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = aux;
+                    if (Guid.TryParse(val, out Guid aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
+            }
+            catch
+            {
+                valueReturn = Guid.Empty;
             }
 
             return valueReturn;

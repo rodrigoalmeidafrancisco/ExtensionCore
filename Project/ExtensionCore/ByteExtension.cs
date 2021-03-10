@@ -20,52 +20,33 @@ namespace ExtensionCore
                         valueReturn = aux;
                     }
                 }
-
-                return valueReturn;
             }
             catch
             {
-                return valueReturn;
+                valueReturn = byte.MinValue;
             }
+
+            return valueReturn;
         }
 
-        public static byte ToByte(this object val)
+        public static byte ToByte(this Enum value)
         {
             byte valueReturn = 0;
 
             try
             {
-                if (val != null)
-                {
-                    valueReturn = val.ToString().ToByte();
-                }
-
-                return valueReturn;
-            }
-            catch
-            {
-                return valueReturn;
-            }
-        }
-
-        public static byte ToByte(this Enum value)
-        {
-            byte aux = 0;
-
-            try
-            {
                 if (value != null)
                 {
-                    var valor = Convert.ChangeType(value, value.GetTypeCode());
-                    aux = valor == null ? "0".ToByte() : valor.ToByte();
+                    string valor = Convert.ChangeType(value, value.GetTypeCode()).ToString();
+                    valueReturn = valor == null ? "0".ToByte() : valor.ToByte();
                 }
-
-                return aux;
             }
             catch
             {
-                return aux;
+                valueReturn = byte.MinValue;
             }
+
+            return valueReturn;
         }
 
         public static byte[] ImageScale(this byte[] imageSource, int scale)
@@ -87,13 +68,13 @@ namespace ExtensionCore
                         }
                     }
                 }
-
-                return retorno;
             }
             catch
             {
-                return retorno;
+                retorno = null;
             }
+
+            return retorno;
         }
 
         public static byte[] ToPathByteArray(this string path)
@@ -113,13 +94,13 @@ namespace ExtensionCore
                         }
                     }
                 }
-
-                return retorno;
             }
             catch
             {
-                return retorno;
+                retorno = null;
             }
+
+            return retorno;
         }
 
 

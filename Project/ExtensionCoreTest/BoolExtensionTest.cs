@@ -11,7 +11,7 @@ namespace ExtensionCoreTest
 
         public BoolExtensionTest()
         {
-            valReturn = false;
+           
         }
 
         [TestMethod]

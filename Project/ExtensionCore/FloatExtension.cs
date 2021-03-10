@@ -6,10 +6,10 @@ namespace ExtensionCore
     {
         public static float ToFloat(this string val)
         {
+            float valueReturn = 0;
+
             try
             {
-                float valueReturn = float.MinValue;
-
                 if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
                     if (float.TryParse(val, out float aux))
@@ -17,21 +17,21 @@ namespace ExtensionCore
                         valueReturn = aux;
                     }
                 }
-
-                return valueReturn;
             }
-            catch 
+            catch
             {
-                return float.MinValue;
+                valueReturn = float.MinValue;
             }
+
+            return valueReturn;
         }
 
         public static float ToFloat(this string val, NumberStyles style, string cultureInfo)
         {
+            float valueReturn = 0;
+
             try
             {
-                float valueReturn = float.MinValue;
-
                 if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
                     if (float.TryParse(val, style, new CultureInfo(cultureInfo), out float aux))
@@ -39,13 +39,13 @@ namespace ExtensionCore
                         valueReturn = aux;
                     }
                 }
-
-                return valueReturn;
             }
             catch
             {
-                return float.MinValue;
+                valueReturn = float.MinValue;
             }
+
+            return valueReturn;
         }
 
 

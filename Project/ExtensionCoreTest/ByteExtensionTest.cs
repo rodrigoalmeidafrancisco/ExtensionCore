@@ -12,8 +12,7 @@ namespace ExtensionCoreTest
 
         public ByteExtensionTest()
         {
-            valbyteReturn = 0;
-            valbyteArrayReturn = null;
+           
         }
 
         [TestMethod]

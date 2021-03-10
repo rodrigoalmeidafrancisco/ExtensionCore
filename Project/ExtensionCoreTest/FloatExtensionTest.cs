@@ -11,7 +11,7 @@ namespace ExtensionCoreTest
 
         public FloatExtensionTest()
         {
-            _valueReturn = float.MinValue;
+           
         }
 
         [TestMethod]

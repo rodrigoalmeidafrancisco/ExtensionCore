@@ -8,12 +8,19 @@ namespace ExtensionCore
         {
             int valueReturn = 0;
 
-            if (!val.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                if (int.TryParse(val, out int aux))
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = aux;
+                    if (int.TryParse(val, out int aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
+            }
+            catch
+            {
+                valueReturn = int.MinValue;
             }
 
             return valueReturn;
@@ -23,42 +30,19 @@ namespace ExtensionCore
         {
             int? valueReturn = null;
 
-            if (!val.IsNullOrEmptyOrWhiteSpace())
+            try
             {
-                if (int.TryParse(val, out int aux))
+                if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
-                    valueReturn = aux;
+                    if (int.TryParse(val, out int aux))
+                    {
+                        valueReturn = aux;
+                    }
                 }
             }
-
-            return valueReturn;
-        }
-
-        public static int ToInt(this object val)
-        {
-            int valueReturn = 0;
-
-            if (val != null)
+            catch
             {
-                if (val is int aux)
-                {
-                    valueReturn = aux;
-                }
-            }
-
-            return valueReturn;
-        }
-
-        public static int? ToIntNull(this object val)
-        {
-            int? valueReturn = null;
-
-            if (val != null)
-            {
-                if (val is int aux)
-                {
-                    valueReturn = aux;
-                }
+                valueReturn = null;
             }
 
             return valueReturn;
@@ -66,16 +50,19 @@ namespace ExtensionCore
 
         public static int ToInt(this Enum value)
         {
-            int aux;
+            int aux = 0;
 
-            if (value == null)
+            try
             {
-                aux = 0;
+                if (value != null)
+                {
+                    string valor = Convert.ChangeType(value, value.GetTypeCode()).ToString();
+                    aux = valor == null ? "0".ToInt() : valor.ToInt();
+                }
             }
-            else
+            catch
             {
-                var valor = Convert.ChangeType(value, value.GetTypeCode());
-                aux = valor == null ? "0".ToInt() : valor.ToInt();
+                aux = int.MinValue;
             }
 
             return aux;
@@ -85,10 +72,17 @@ namespace ExtensionCore
         {
             int? aux = null;
 
-            if (value != null)
+            try
             {
-                var valor = Convert.ChangeType(value, value.GetTypeCode());
-                aux = valor == null ? "0".ToInt() : valor.ToInt();
+                if (value != null)
+                {
+                    string valor = Convert.ChangeType(value, value.GetTypeCode()).ToString();
+                    aux = valor == null ? "0".ToInt() : valor.ToInt();
+                }
+            }
+            catch
+            {
+                aux = null;
             }
 
             return aux;

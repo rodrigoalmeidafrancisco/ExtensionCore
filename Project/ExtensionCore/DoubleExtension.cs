@@ -6,10 +6,10 @@ namespace ExtensionCore
     {
         public static double ToDouble(this string val)
         {
+            double valueReturn = 0;
+
             try
             {
-                double valueReturn = double.MinValue;
-
                 if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
                     if (double.TryParse(val, out double aux))
@@ -17,21 +17,21 @@ namespace ExtensionCore
                         valueReturn = aux;
                     }
                 }
-
-                return valueReturn;
             }
             catch
             {
-                return double.MinValue;
+                valueReturn = double.MinValue;
             }
+
+            return valueReturn;
         }
 
         public static double ToDouble(this string val, NumberStyles style, string cultureInfo)
         {
+            double valueReturn = 0;
+
             try
             {
-                double valueReturn = double.MinValue;
-
                 if (!val.IsNullOrEmptyOrWhiteSpace())
                 {
                     if (double.TryParse(val, style, new CultureInfo(cultureInfo), out double aux))
@@ -39,13 +39,13 @@ namespace ExtensionCore
                         valueReturn = aux;
                     }
                 }
-
-                return valueReturn;
             }
             catch
             {
-                return double.MinValue;
+                valueReturn = double.MinValue;
             }
+
+            return valueReturn;
         }
 
     }
