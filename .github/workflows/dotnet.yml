@@ -31,9 +31,9 @@ jobs:
       #    name: dropArtifacts
       #    path: **/src/ExtensionCore/bin/Release/*.nupkg
         
-      - name: Test
-        working-directory: Project
-        run: dotnet test --no-restore --verbosity normal
+      #- name: Test
+      #  working-directory: Project
+      #  run: dotnet test --no-restore --verbosity normal
     
       - name: Publish Nuget
         run: dotnet nuget push **/*.nupkg -k ${{secrets.NUGETTOKEN}} -s https://api.nuget.org/v3/index.json --skip-duplicate
